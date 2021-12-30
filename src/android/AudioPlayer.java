@@ -129,7 +129,8 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
         return dir.getAbsolutePath() + File.separator + fileName;
         */   
         Context context = this.handler.getApplicationContext();
-        String tempFileName = context.getFilesDir().getAbsolutePath() + "/tmprecording-" + System.currentTimeMillis() + ".3gp";
+        //String tempFileName = context.getFilesDir().getAbsolutePath() + "/tmprecording-" + System.currentTimeMillis() + ".3gp";
+        String tempFileName = context.getFilesDir().getAbsolutePath() + "/tmprecording.mp3";
 
        return tempFileName;
     }
