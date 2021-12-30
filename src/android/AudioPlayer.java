@@ -26,7 +26,7 @@ import android.media.MediaPlayer.OnErrorListener;
 import android.media.MediaPlayer.OnPreparedListener;
 import android.media.MediaRecorder;
 import android.os.Environment;
-
+import android.content.Context;
 import org.apache.cordova.LOG;
 
 import org.json.JSONException;
@@ -117,6 +117,7 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
      * @return String
      */
     private String createAudioFilePath(String fileName) {
+        /*
         File dir = Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED)
             ? context.getExternalFilesDir(null)
             : context.getCacheDir();
@@ -126,6 +127,11 @@ public class AudioPlayer implements OnCompletionListener, OnPreparedListener, On
             : fileName;
 
         return dir.getAbsolutePath() + File.separator + fileName;
+        */   
+        Context context = this.handler.getApplicationContext();
+        String tempFileName = context.getFilesDir().getAbsolutePath() + "/tmprecording-" + System.currentTimeMillis() + ".3gp";
+
+       return tempFileName;
     }
 
     /**
